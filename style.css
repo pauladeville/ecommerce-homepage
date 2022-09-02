@@ -121,7 +121,7 @@ header.menu-active::before {
   background-color: hsl(0deg, 0%, 63%);
 }
 
-.slider__text, #about {
+.slider__text {
   padding: 70px 35px;
 }
 
@@ -146,6 +146,16 @@ a {
   text-decoration: none;
   font-weight: 600;
   margin-right: 15px;
+}
+
+h2 {
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 15px;
+}
+
+.about__text {
+  padding: 70px 35px;
 }
 
 /*# sourceMappingURL=style.css.map */
