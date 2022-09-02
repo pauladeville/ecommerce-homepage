@@ -9,13 +9,143 @@
 
 /*MEDIA QUERIES*/
 /*MOBILE VERSION*/
-nav li {
-  background-color: bisque;
+body {
+  position: relative;
 }
-@media screen and (min-width: 900px) {
-  nav li {
-    background-color: aqua;
-  }
+body.menu-active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+header {
+  background: url(images/mobile-image-hero-1.jpg);
+  height: 360px;
+  position: relative;
+}
+header.menu-active::before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  position: absolute;
+  top: 110px;
+  height: 250px;
+}
+
+#logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-top: 40px;
+  font-size: 30px;
+  color: hsl(0deg, 0%, 100%);
+  font-weight: 500;
+  transition: color 300ms ease-in-out;
+}
+#logo.menu-active {
+  color: transparent;
+}
+
+#navmobile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10% 8%;
+  transition: background-color 300ms ease-in-out;
+}
+#navmobile ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+#navmobile li {
+  padding: 10px;
+  color: transparent;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: lowercase;
+  transition: color 500ms ease-in-out;
+}
+#navmobile.menu-active {
+  background-color: hsl(0deg, 0%, 100%);
+}
+#navmobile.menu-active li {
+  color: hsl(0deg, 0%, 0%);
+}
+
+#burger {
+  cursor: pointer;
+  width: 22px;
+  height: 30px;
+  position: relative;
+  margin-right: 20px;
+}
+#burger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: hsl(0deg, 0%, 100%);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color 150ms ease-in-out;
+}
+#burger span::before, #burger span::after {
+  content: "";
+  position: absolute;
+  background-color: hsl(0deg, 0%, 100%);
+  width: 100%;
+  height: 2px;
+  transition: all 400ms ease-in-out;
+}
+#burger span::before {
+  transform: translateY(-6px);
+}
+#burger span::after {
+  transform: translateY(6px);
+}
+#burger.menu-active span {
+  background-color: transparent;
+}
+#burger.menu-active span::before {
+  transform: rotateZ(45deg);
+  background-color: hsl(0deg, 0%, 63%);
+}
+#burger.menu-active span::after {
+  transform: rotateZ(-45deg);
+  background-color: hsl(0deg, 0%, 63%);
+}
+
+.slider__text, #about {
+  padding: 70px 35px;
+}
+
+h1 {
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 20px;
+  color: hsl(0deg, 0%, 63%);
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+
+a {
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 15px;
+  color: hsl(0deg, 0%, 0%);
+  text-decoration: none;
+  font-weight: 600;
+  margin-right: 15px;
 }
 
 /*# sourceMappingURL=style.css.map */
