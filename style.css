@@ -1,3 +1,21 @@
+/*COULEURS*/
+/*PRESET*/
+* {
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  font-family: "League Spartan", sans-serif;
+}
 
+/*MEDIA QUERIES*/
+/*MOBILE VERSION*/
+nav li {
+  background-color: bisque;
+}
+@media screen and (min-width: 900px) {
+  nav li {
+    background-color: aqua;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
