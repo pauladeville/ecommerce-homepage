@@ -12,90 +12,102 @@
 body {
   position: relative;
 }
-body.menu-active::before {
+body::before {
   content: "";
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
+  background-color: transparent;
+  transition: background-color 400ms ease-in-out;
+}
+body.menu-active::before {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
 header {
   background: url(images/mobile-image-hero-1.jpg);
-  height: 360px;
-  position: relative;
-}
-header.menu-active::before {
-  content: "";
-  background-color: rgba(0, 0, 0, 0.5);
+  height: 50vh;
   width: 100%;
-  position: absolute;
-  top: 110px;
-  height: 250px;
+  position: fixed;
+  top: 0;
+  padding-top: 10%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 #logo {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  padding-top: 40px;
+  text-align: center;
+}
+#logo a {
   font-size: 30px;
   color: hsl(0deg, 0%, 100%);
   font-weight: 500;
-  transition: color 300ms ease-in-out;
-}
-#logo.menu-active {
-  color: transparent;
+  text-decoration: none;
 }
 
 #navmobile {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 10% 8%;
-  transition: background-color 300ms ease-in-out;
+  z-index: 5;
+  background-color: hsl(0deg, 0%, 100%);
+  position: fixed;
+  width: 84%;
+  transform: translateY(-10vh);
 }
 #navmobile ul {
   list-style-type: none;
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
+  background-color: hsl(0deg, 0%, 100%);
 }
-#navmobile li {
+#navmobile li a {
   padding: 10px;
-  color: transparent;
+  color: hsl(0deg, 0%, 0%);
   font-size: 16px;
   font-weight: 600;
   text-transform: lowercase;
-  transition: color 500ms ease-in-out;
+  text-decoration: none;
 }
 #navmobile.menu-active {
-  background-color: hsl(0deg, 0%, 100%);
-}
-#navmobile.menu-active li {
-  color: hsl(0deg, 0%, 0%);
+  transform: translateY(0);
 }
 
 #burger {
+  position: fixed;
+  left: 10%;
+  top: 0;
+  z-index: 9;
+  background-color: red;
+  margin-top: 10%;
+}
+#burger__icon {
   cursor: pointer;
   width: 22px;
   height: 30px;
   position: relative;
   margin-right: 20px;
+  z-index: 9;
+  display: block;
 }
-#burger span {
+#burger__icon span {
   display: block;
   width: 100%;
   height: 2px;
   background-color: hsl(0deg, 0%, 100%);
   position: absolute;
+  border-radius: 500px;
   top: 50%;
   transform: translateY(-50%);
   transition: background-color 150ms ease-in-out;
 }
-#burger span::before, #burger span::after {
+#burger__icon span::before, #burger__icon span::after {
+  border-radius: 500px;
   content: "";
   position: absolute;
   background-color: hsl(0deg, 0%, 100%);
@@ -103,59 +115,64 @@ header.menu-active::before {
   height: 2px;
   transition: all 400ms ease-in-out;
 }
-#burger span::before {
+#burger__icon span::before {
   transform: translateY(-6px);
 }
-#burger span::after {
+#burger__icon span::after {
   transform: translateY(6px);
 }
-#burger.menu-active span {
+#burger__icon.menu-active span {
   background-color: transparent;
 }
-#burger.menu-active span::before {
+#burger__icon.menu-active span::before {
   transform: rotateZ(45deg);
   background-color: hsl(0deg, 0%, 63%);
 }
-#burger.menu-active span::after {
+#burger__icon.menu-active span::after {
   transform: rotateZ(-45deg);
   background-color: hsl(0deg, 0%, 63%);
+}
+
+section p {
+  font-size: 16px;
+  line-height: 20px;
+  color: hsl(0deg, 0%, 63%);
+  font-weight: 500;
 }
 
 .slider__text {
   padding: 70px 35px;
 }
-
-h1 {
+.slider h1 {
   font-size: 35px;
   margin-bottom: 15px;
 }
-
-p {
-  font-size: 16px;
-  line-height: 20px;
-  color: hsl(0deg, 0%, 63%);
-  font-weight: 500;
+.slider p {
   margin-bottom: 40px;
 }
-
-a {
+.slider a {
   font-size: 16px;
   text-transform: uppercase;
-  letter-spacing: 15px;
+  letter-spacing: 12px;
   color: hsl(0deg, 0%, 0%);
   text-decoration: none;
   font-weight: 600;
   margin-right: 15px;
 }
-
-h2 {
+.slider h2 {
   font-size: 16px;
   text-transform: uppercase;
   letter-spacing: 15px;
 }
 
 .about__text {
-  padding: 70px 35px;
+  padding: 50px 35px 40px 35px;
+}
+.about h2 {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 15px;
+  margin-bottom: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */
