@@ -9,10 +9,12 @@
 
 /*MEDIA QUERIES*/
 /*MOBILE VERSION*/
-body {
+body,
+header {
   position: relative;
 }
-body::before {
+body::before,
+header::before {
   content: "";
   position: absolute;
   top: 0;
@@ -22,80 +24,70 @@ body::before {
   background-color: transparent;
   transition: background-color 400ms ease-in-out;
 }
-body.menu-active::before {
+body.menu-active::before,
+header.menu-active::before {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
 header {
   background: url(images/mobile-image-hero-1.jpg);
-  height: 50vh;
+  height: 30vh;
   width: 100%;
-  position: fixed;
-  top: 0;
   padding-top: 10%;
+  text-align: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
-
-#logo {
-  text-align: center;
-}
-#logo a {
+header a {
   font-size: 30px;
   color: hsl(0deg, 0%, 100%);
   font-weight: 500;
   text-decoration: none;
 }
 
-#navmobile {
+#nav-mobile {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 10% 8%;
   z-index: 5;
-  background-color: hsl(0deg, 0%, 100%);
+  background-color: transparent;
+  transition: background-color 400ms ease-in-out;
   position: fixed;
   width: 84%;
-  transform: translateY(-10vh);
 }
-#navmobile ul {
+#nav-mobile ul {
   list-style-type: none;
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
-  background-color: hsl(0deg, 0%, 100%);
 }
-#navmobile li a {
+#nav-mobile li a {
   padding: 10px;
-  color: hsl(0deg, 0%, 0%);
+  color: transparent;
+  transition: color 400ms ease-in-out;
   font-size: 16px;
   font-weight: 600;
   text-transform: lowercase;
   text-decoration: none;
 }
-#navmobile.menu-active {
-  transform: translateY(0);
+#nav-mobile li a.menu-active {
+  color: hsl(0deg, 0%, 0%);
+}
+#nav-mobile.menu-active {
+  background-color: hsl(0deg, 0%, 100%);
 }
 
 #burger {
-  position: fixed;
-  left: 10%;
-  top: 0;
   z-index: 9;
-  background-color: red;
-  margin-top: 10%;
-}
-#burger__icon {
   cursor: pointer;
   width: 22px;
   height: 30px;
   position: relative;
-  margin-right: 20px;
-  z-index: 9;
-  display: block;
+  margin-right: 30px;
 }
-#burger__icon span {
+#burger span {
   display: block;
   width: 100%;
   height: 2px;
@@ -106,7 +98,7 @@ header {
   transform: translateY(-50%);
   transition: background-color 150ms ease-in-out;
 }
-#burger__icon span::before, #burger__icon span::after {
+#burger span::before, #burger span::after {
   border-radius: 500px;
   content: "";
   position: absolute;
@@ -115,20 +107,20 @@ header {
   height: 2px;
   transition: all 400ms ease-in-out;
 }
-#burger__icon span::before {
+#burger span::before {
   transform: translateY(-6px);
 }
-#burger__icon span::after {
+#burger span::after {
   transform: translateY(6px);
 }
-#burger__icon.menu-active span {
+#burger.menu-active span {
   background-color: transparent;
 }
-#burger__icon.menu-active span::before {
+#burger.menu-active span::before {
   transform: rotateZ(45deg);
   background-color: hsl(0deg, 0%, 63%);
 }
-#burger__icon.menu-active span::after {
+#burger.menu-active span::after {
   transform: rotateZ(-45deg);
   background-color: hsl(0deg, 0%, 63%);
 }
