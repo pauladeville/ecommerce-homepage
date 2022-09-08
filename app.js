@@ -24,7 +24,26 @@ window.onscroll = function () {
     for (let burgerBar of burgerBars) {
       burgerBar.style.backgroundColor = "#fff";
       logo.style.color = "#fff";
-
     }
   }
 };
+/*SLIDESHOW*/
+let slideIndex = 1;
+showSlides(slideIndex);
+function getSlide(n) {
+  showSlides((slideIndex += n));
+}
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("slider__container");
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+  for (i = 0; i < slides.length; i++){
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex-1].style.display = "block";
+}
