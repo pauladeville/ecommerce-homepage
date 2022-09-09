@@ -27,32 +27,30 @@ window.onscroll = function () {
     }
   }
 };
-
+/*SLIDESHOW*/
 let slides = document.getElementsByClassName("slider__container");
 let currentSlide = 0;
 let arrowsPrev = document.getElementsByClassName("prev");
 let arrowsNext = document.getElementsByClassName("next");
 
-for(let arrow of arrowsPrev) {
+for (let arrow of arrowsPrev) {
   arrow.addEventListener("click", () => {
     changeSlide(currentSlide - 1);
-  });  
-};
-for(let arrow of arrowsNext) {
+  });
+}
+for (let arrow of arrowsNext) {
   arrow.addEventListener("click", () => {
     changeSlide(currentSlide + 1);
-  });  
+  });
 }
-function changeSlide(wantedSlide){
-  if(wantedSlide >= slides.length){
+function changeSlide(wantedSlide) {
+  if (wantedSlide >= slides.length) {
     wantedSlide = 0;
   }
-  if(wantedSlide < 0) {
+  if (wantedSlide < 0) {
     wantedSlide = slides.length - 1;
   }
-  console.log(wantedSlide);
-
   slides[currentSlide].classList.remove("active");
   slides[wantedSlide].classList.add("active");
   currentSlide = wantedSlide;
-};
+}

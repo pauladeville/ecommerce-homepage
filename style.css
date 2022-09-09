@@ -107,7 +107,12 @@ header a {
     text-transform: lowercase;
     text-decoration: none;
     color: hsl(0deg, 0%, 100%);
-    padding-left: 30px;
+    padding: 5px 15px;
+    background: linear-gradient(currentColor 0 0) bottom/var(--d, 0) 2px no-repeat;
+    transition: 0.5s;
+  }
+  #nav-desktop li a:hover {
+    --d: 30%;
   }
 }
 
@@ -177,20 +182,21 @@ section p {
 }
 @media screen and (min-width: 900px) {
   .slider__arrows {
-    right: -127.067px;
+    right: -132.067px;
   }
 }
 .slider__arrows a {
   cursor: pointer;
   display: inline-block;
-  padding: 20px;
-  transition: opacity 200ms ease-in-out;
+  padding: 20px 25px;
+  margin: 0 !important;
+  transition: background-color 400ms ease-in-out;
+}
+.slider__arrows a:hover {
+  background-color: hsl(0deg, 0%, 27%);
 }
 .slider__arrows a.next {
   margin: 0 !important;
-}
-.slider__arrows a:hover {
-  opacity: 70%;
 }
 .slider__arrows a img {
   width: 70%;
@@ -223,7 +229,14 @@ section p {
 .slider p {
   margin-bottom: 40px;
 }
-.slider a {
+.slider__link {
+  position: relative;
+  z-index: 9;
+}
+.slider__link:hover {
+  opacity: 60%;
+}
+.slider__link a {
   font-size: 15px;
   text-transform: uppercase;
   letter-spacing: 12px;
@@ -231,6 +244,7 @@ section p {
   text-decoration: none;
   font-weight: 600;
   margin-right: 15px;
+  transition: color 300ms ease-in-out;
 }
 .slider h2 {
   font-size: 16px;
@@ -249,6 +263,7 @@ section p {
   }
 }
 
+/*RESPONSIVE IMG*/
 @media screen and (min-width: 900px) {
   .img-mobile {
     display: none;
@@ -264,6 +279,7 @@ section p {
   }
 }
 
+/*SECTION ABOUT*/
 .about__text {
   padding: 50px 35px 40px 35px;
   display: flex;
