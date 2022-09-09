@@ -52,6 +52,10 @@ header {
     transition: color 300ms ease-in-out;
     margin-left: -30px;
   }
+  @include desktop {
+    padding: 44px 0 44px 100px;
+    text-align: left;
+  }
 }
 #nav-mobile {
   position: fixed;
@@ -63,25 +67,51 @@ header {
   padding: 10% 8%;
   background-color: transparent;
   transition: background-color 400ms ease-in-out;
+  @include desktop {
+    display: none;
+  }
   ul {
     list-style-type: none;
     display: flex;
     justify-content: space-around;
   }
   li a {
-    padding: 10px;
-    color: transparent;
-    transition: color 400ms ease-in-out;
     font-size: 16px;
     font-weight: 600;
     text-transform: lowercase;
     text-decoration: none;
+    color: transparent;
+    padding-left: 20px;
+    transition: color 400ms ease-in-out;
     &.menu-active {
       color: $black;
     }
   }
   &.menu-active {
     background-color: $white;
+  }
+}
+#nav-desktop {
+  display: none;
+  @include desktop {
+    display: block;
+    width: 50%;
+    padding: 50px 0 50px 180px;
+    position: fixed;
+    z-index: 9;
+    ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: flex-start;
+    }
+    li a {
+      font-size: 18px;
+      font-weight: 600;
+      text-transform: lowercase;
+      text-decoration: none;
+      color: $white;
+      padding-left: 30px;
+    }
   }
 }
 #burger {
@@ -142,7 +172,8 @@ section {
   &__img {
     position: relative;
     display: flex;
-    &--hero{
+    flex: 2;
+    &--hero {
       object-fit: cover;
     }
   }
@@ -152,6 +183,9 @@ section {
     right: 0;
     bottom: 0;
     z-index: 8;
+    @include desktop {
+      right: -127.067px;
+    }
     a {
       cursor: pointer;
       display: inline-block;
@@ -172,11 +206,22 @@ section {
     width: 100%;
   }
   &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 1;
     padding: 55px 35px 70px 35px;
+    @include desktop {
+      justify-content: center;
+      padding: 8% 8% 10% 8%;
+    }
   }
   h1 {
     font-size: 35px;
     margin-bottom: 15px;
+    @include desktop {
+      font-size: 45px;
+    }
   }
   p {
     margin-bottom: 40px;
@@ -195,15 +240,52 @@ section {
     text-transform: uppercase;
     letter-spacing: 15px;
   }
+  &__container {
+    display: none;
+    &.active {
+      display: block;
+      @include desktop {
+        display: flex;
+      }
+    }
+  }
 }
+
+.img-mobile {
+  @include desktop {
+    display: none;
+  }
+}
+.img-desktop {
+  display: none;
+  @include desktop {
+    display: block;
+  }
+}
+
 .about {
   &__text {
     padding: 50px 35px 40px 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include desktop {
+      padding: 70px 50px;
+    }
   }
   h2 {
     text-transform: uppercase;
     letter-spacing: 5px;
     font-size: 15px;
     margin-bottom: 20px;
+    @include desktop {
+      font-size: 17px;
+    }
+  }
+  img {
+    width: 100%;
+  }
+  @include desktop {
+    display: flex;
   }
 }

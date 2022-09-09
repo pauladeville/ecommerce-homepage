@@ -27,23 +27,32 @@ window.onscroll = function () {
     }
   }
 };
-/*SLIDESHOW*/
-let slideIndex = 1;
-showSlides(slideIndex);
-function getSlide(n) {
-  showSlides((slideIndex += n));
+
+let slides = document.getElementsByClassName("slider__container");
+let currentSlide = 0;
+let arrowsPrev = document.getElementsByClassName("prev");
+let arrowsNext = document.getElementsByClassName("next");
+
+for(let arrow of arrowsPrev) {
+  arrow.addEventListener("click", () => {
+    changeSlide(currentSlide - 1);
+  });  
+};
+for(let arrow of arrowsNext) {
+  arrow.addEventListener("click", () => {
+    changeSlide(currentSlide + 1);
+  });  
 }
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("slider__container");
-  if (n > slides.length) {
-    slideIndex = 1;
+function changeSlide(wantedSlide){
+  if(wantedSlide >= slides.length){
+    wantedSlide = 0;
   }
-  if (n < 1) {
-    slideIndex = slides.length;
+  if(wantedSlide < 0) {
+    wantedSlide = slides.length - 1;
   }
-  for (i = 0; i < slides.length; i++){
-    slides[i].style.display = "none";
-  }
-  slides[slideIndex-1].style.display = "block";
-}
+  console.log(wantedSlide);
+
+  slides[currentSlide].classList.remove("active");
+  slides[wantedSlide].classList.add("active");
+  currentSlide = wantedSlide;
+};

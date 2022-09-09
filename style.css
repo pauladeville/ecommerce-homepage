@@ -41,6 +41,12 @@ header a {
   transition: color 300ms ease-in-out;
   margin-left: -30px;
 }
+@media screen and (min-width: 900px) {
+  header {
+    padding: 44px 0 44px 100px;
+    text-align: left;
+  }
+}
 
 #nav-mobile {
   position: fixed;
@@ -53,25 +59,56 @@ header a {
   background-color: transparent;
   transition: background-color 400ms ease-in-out;
 }
+@media screen and (min-width: 900px) {
+  #nav-mobile {
+    display: none;
+  }
+}
 #nav-mobile ul {
   list-style-type: none;
   display: flex;
   justify-content: space-around;
 }
 #nav-mobile li a {
-  padding: 10px;
-  color: transparent;
-  transition: color 400ms ease-in-out;
   font-size: 16px;
   font-weight: 600;
   text-transform: lowercase;
   text-decoration: none;
+  color: transparent;
+  padding-left: 20px;
+  transition: color 400ms ease-in-out;
 }
 #nav-mobile li a.menu-active {
   color: hsl(0deg, 0%, 0%);
 }
 #nav-mobile.menu-active {
   background-color: hsl(0deg, 0%, 100%);
+}
+
+#nav-desktop {
+  display: none;
+}
+@media screen and (min-width: 900px) {
+  #nav-desktop {
+    display: block;
+    width: 50%;
+    padding: 50px 0 50px 180px;
+    position: fixed;
+    z-index: 9;
+  }
+  #nav-desktop ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-start;
+  }
+  #nav-desktop li a {
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: lowercase;
+    text-decoration: none;
+    color: hsl(0deg, 0%, 100%);
+    padding-left: 30px;
+  }
 }
 
 #burger {
@@ -126,6 +163,7 @@ section p {
 .slider__img {
   position: relative;
   display: flex;
+  flex: 2;
 }
 .slider__img--hero {
   object-fit: cover;
@@ -136,6 +174,11 @@ section p {
   right: 0;
   bottom: 0;
   z-index: 8;
+}
+@media screen and (min-width: 900px) {
+  .slider__arrows {
+    right: -127.067px;
+  }
 }
 .slider__arrows a {
   cursor: pointer;
@@ -156,11 +199,26 @@ section p {
   width: 100%;
 }
 .slider__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1;
   padding: 55px 35px 70px 35px;
+}
+@media screen and (min-width: 900px) {
+  .slider__text {
+    justify-content: center;
+    padding: 8% 8% 10% 8%;
+  }
 }
 .slider h1 {
   font-size: 35px;
   margin-bottom: 15px;
+}
+@media screen and (min-width: 900px) {
+  .slider h1 {
+    font-size: 45px;
+  }
 }
 .slider p {
   margin-bottom: 40px;
@@ -179,15 +237,62 @@ section p {
   text-transform: uppercase;
   letter-spacing: 15px;
 }
+.slider__container {
+  display: none;
+}
+.slider__container.active {
+  display: block;
+}
+@media screen and (min-width: 900px) {
+  .slider__container.active {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .img-mobile {
+    display: none;
+  }
+}
+
+.img-desktop {
+  display: none;
+}
+@media screen and (min-width: 900px) {
+  .img-desktop {
+    display: block;
+  }
+}
 
 .about__text {
   padding: 50px 35px 40px 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media screen and (min-width: 900px) {
+  .about__text {
+    padding: 70px 50px;
+  }
 }
 .about h2 {
   text-transform: uppercase;
   letter-spacing: 5px;
   font-size: 15px;
   margin-bottom: 20px;
+}
+@media screen and (min-width: 900px) {
+  .about h2 {
+    font-size: 17px;
+  }
+}
+.about img {
+  width: 100%;
+}
+@media screen and (min-width: 900px) {
+  .about {
+    display: flex;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
